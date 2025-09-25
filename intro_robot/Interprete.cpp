@@ -12,16 +12,18 @@ Interprete::Interprete(Lector* lector)
 	this->lector = lector;
 }
 
-void Interprete::procesar()
+Comando Interprete::procesar(uint8_t *parametros)
 {
 	if(this->lector != nullptr)
 	{
 		String comando = this->lector->leer();
-		
+
 		if(comando.length() > 0)
 		{
 			// TODO: Implementar parsing y procesamiento de comandos
 			// Ejemplo: parseCommand(comando);
 		}
+
+		return SEGUIR_LINEA; // TODO quitar despues de probar
 	}
 }

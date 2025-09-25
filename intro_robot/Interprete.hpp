@@ -10,6 +10,7 @@
 
 #include "Arduino.h"
 #include "Lector.hpp"
+#include "comandos.hpp"
 
 /**
  * @class Interprete
@@ -34,7 +35,7 @@ public:
 	/**
 	 * @brief Procesa comandos disponibles del lector
 	 */
-	void procesar();
+	Comando procesar(uint8_t *parametros);
 };
 
 #endif //__INTERPRETE_H__
