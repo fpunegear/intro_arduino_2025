@@ -29,6 +29,9 @@ private:
 	/** @brief Pin para control de sentido B del motor */
 	int pinSentidoB;
 
+	/** @brief Pin para control de velocidad del motor */
+	int pinVelocidad;
+
 	/** @brief Indica si el motor ha sido inicializado */
 	bool iniciado = false;
 
@@ -37,8 +40,9 @@ public:
 	 * @brief Constructor de la clase MotorCC
 	 * @param pinSentidoA Pin digital para controlar sentido A
 	 * @param pinSentidoB Pin digital para controlar sentido B
+	 * @param velocidad Pin PWM para controlar velocidad del motor
 	 */
-	MotorCC(int pinSentidoA, int pinSentidoB);
+	MotorCC(int pinSentidoA, int pinSentidoB, int velocidad);
 
 	/**
 	 * @brief Inicializa los pines del motor como salidas
@@ -60,6 +64,14 @@ public:
 	 *                  Valores negativos: giro en sentido A
 	 */
 	void girarSentidoB(int velocidad);
+
+	/**
+	 * @brief Detiene completamente el motor
+	 *
+	 * Pone la velocidad en 0 y desactiva ambos pines de sentido,
+	 * deteniendo cualquier movimiento del motor.
+	 */
+	void detener();
 };
 
 #endif //__MOTOR_CC_H__
